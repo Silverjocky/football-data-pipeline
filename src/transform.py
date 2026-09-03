@@ -20,4 +20,11 @@ df.to_csv("data/matches_transformed.csv", index=False)
 
 print("CSV generado correctamente")
 
-df.to_parquet("data/matches_transformed.parquet", index=False)
+# Dataset particionado
+df.to_parquet(
+    "data/processed_partitioned",
+    partition_cols=["year", "month"],
+    index=False,
+)
+ 
+print("Parquet particionado generado en data/processed_partitioned/")
